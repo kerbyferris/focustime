@@ -8,17 +8,17 @@ TextInput;
 const Focus = ({ addSubject }) => {
   const [subject, setSubject] = useState(null);
   return (
-    <View style={styles.container}>
-      <View style={styles.inputContainer}>
+    <View className="flex-1">
+      <View className="p-6 justify-center text-black flex-row">
         <TextInput
-          style={styles.textInput}
+          className="flex-1 mr-2"
           onChangeText={setSubject}
           label="What would you like to focus on?"
         />
-        <View style={styles.button}>
+        <View className="justify-center">
           <RoundedButton
             title="+"
-            size={50}
+            size={14}
             onPress={() => addSubject(subject)}
           />
         </View>
@@ -28,22 +28,3 @@ const Focus = ({ addSubject }) => {
 };
 
 export default Focus;
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  button: {
-    justifyContent: "center",
-  },
-  inputContainer: {
-    padding: 25,
-    justifyContent: "center",
-    color: "black",
-    flexDirection: "row",
-  },
-  textInput: {
-    flex: 1,
-    marginRight: 10,
-  },
-});
