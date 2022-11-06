@@ -5,7 +5,7 @@ import { RoundedButton } from "../components/RoundedButton";
 
 TextInput;
 
-export const Focus = ({ addSubject }) => {
+const Focus = ({ addSubject }) => {
   const [subject, setSubject] = useState(null);
   return (
     <View style={styles.container}>
@@ -26,6 +26,8 @@ export const Focus = ({ addSubject }) => {
     </View>
   );
 };
+
+export default Focus;
 
 const styles = StyleSheet.create({
   container: {
