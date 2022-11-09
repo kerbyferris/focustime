@@ -1,10 +1,14 @@
 import React, { useState } from "react";
-import { SafeAreaView, View } from "react-native";
+import { SafeAreaView } from "react-native";
 import Focus from "./src/features/Focus";
 import Timer from "./src/features/Timer";
 
 export default function App() {
   const [currentSubject, setCurrentSubject] = useState("");
+  const clearSubjectHandler = () => {
+    console.log("pressed");
+    return setCurrentSubject("");
+  };
   return (
     <SafeAreaView className="flex-1 bg-red-500 android:pt-10">
       {!currentSubject ? (
@@ -12,8 +16,7 @@ export default function App() {
       ) : (
         <Timer
           focusSubject={currentSubject}
-          onTimerEnd={() => { }}
-          clearSubject={() => { }}
+          clearSubject={clearSubjectHandler}
         />
       )}
     </SafeAreaView>

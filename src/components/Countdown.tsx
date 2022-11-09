@@ -9,7 +9,7 @@ export const Countdown = ({
   onProgress,
   onEnd,
 }: {
-  minutes: number;
+  minutes: any;
   isPaused: boolean;
   onProgress: any;
   onEnd: any;
