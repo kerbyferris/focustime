@@ -12,11 +12,12 @@ const Timing = ({
   const onPressHandler = () => onChangeTime(minutes);
   return (
     <>
-      <View className="items-center flex-1">
+      <View className="flex-1 items-center">
         <RoundedButton
           title={minutes.toString()}
           textSize="3xl"
-          size={14}
+          height="h-16"
+          width="w-16"
           onPress={onPressHandler}
         />
       </View>

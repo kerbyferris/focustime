@@ -9,16 +9,17 @@ const Focus = ({ addSubject }) => {
   const [subject, setSubject] = useState(null);
   return (
     <View className="flex-1">
-      <View className="p-6 justify-center text-black flex-row">
+      <View className="flex-row justify-center p-6 text-black">
         <TextInput
-          className="flex-1 mr-2"
+          className="mr-2 flex-1"
           onChangeText={setSubject}
           label="What would you like to focus on?"
         />
         <View className="justify-center">
           <RoundedButton
             title="+"
-            size={14}
+            height="h-14"
+            width="w-14"
             onPress={() => addSubject(subject)}
           />
         </View>

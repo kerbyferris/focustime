@@ -10,7 +10,7 @@ export default function App() {
     return setCurrentSubject("");
   };
   return (
-    <SafeAreaView className="flex-1 bg-red-500 android:pt-10">
+    <SafeAreaView className="android:pt-10 flex-1 bg-red-500">
       {!currentSubject ? (
         <Focus addSubject={setCurrentSubject} />
       ) : (

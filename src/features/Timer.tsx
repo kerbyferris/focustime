@@ -44,13 +44,13 @@ export const Timer = ({
           <ProgressBar color="white" className="h-3" progress={progress} />
         </View>
         <View className="pt-1">
-          <Text className="text-white text-center text-3xl">focusing on:</Text>
-          <Text className="text-white font-bold text-center text-4xl">
+          <Text className="text-center text-3xl text-white">focusing on:</Text>
+          <Text className="text-center text-4xl font-bold text-white">
             {focusSubject}
           </Text>
         </View>
       </View>
-      <View className="flex-[0.3] flex-row p-4 justify-center items-center">
+      <View className="flex-[0.3] flex-row items-center justify-center p-4">
         {isStarted ? (
           <RoundedButton title="pause" onPress={pauseButtonHandler} />
         ) : (
@@ -64,9 +64,10 @@ export const Timer = ({
       </View>
       <View className="flex-row justify-center pt-6">
         <RoundedButton
-          size={14}
           title="clear"
           textSize="1xl"
+          height="h-12"
+          width="w-12"
           onPress={clearSubject}
         />
       </View>
