@@ -18,11 +18,13 @@ export const Countdown = ({
 
   const [millis, setMillis] = useState(0);
 
+  const reset = () => setMillis(minutesToMillis(minutes));
+
   const countDown = () => {
     setMillis((time: any) => {
       if (time === 0) {
         clearInterval(interval.current);
-        onEnd();
+        onEnd(reset);
         return time;
       }
       const timeLeft = time - 1000;
@@ -52,7 +54,7 @@ export const Countdown = ({
   const minute = Math.floor(millis / 1000 / 60) % 60;
   const seconds = Math.floor(millis / 1000) % 60;
   return (
-    <Text className="text-8xl font-bold text-white p-8">
+    <Text className="p-8 text-8xl font-bold text-white">
       {formatTime(minute)}:{formatTime(seconds)}
     </Text>
   );

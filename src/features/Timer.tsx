@@ -1,3 +1,4 @@
+import { useKeepAwake } from "expo-keep-awake";
 import React, { useState } from "react";
 import { View, Text, Vibration } from "react-native";
 import { ProgressBar } from "react-native-paper";
@@ -18,23 +19,32 @@ const PATTERN = [
 export const Timer = ({
   focusSubject,
   clearSubject,
+  onTimerEnd,
 }: {
   focusSubject: string;
   clearSubject: () => any;
+  onTimerEnd: (subject: string) => void;
 }) => {
+  useKeepAwake();
   const [isStarted, setIsStarted] = useState(false);
   const [progress, setProgress] = useState(1);
-  const [minutes, setMinutes] = useState(15);
+  const [minutes, setMinutes] = useState(0.1);
 
   const startButtonHandler = () => setIsStarted(true);
   const pauseButtonHandler = () => setIsStarted(false);
-  const onEndHandler = () => Vibration.vibrate(PATTERN);
+
+  const onEndHandler = (reset: () => number) => {
+    Vibration.vibrate(PATTERN);
+    setIsStarted(false);
+    setProgress(1);
+    reset();
+    onTimerEnd(focusSubject);
+  };
 
   return (
     <View className="flex-1">
       <View className="flex-[0.4] items-center justify-center">
         <Countdown
-          // minutes={setMinutes}
           minutes={minutes}
           isPaused={!isStarted}
           onProgress={setProgress}
@@ -50,7 +60,7 @@ export const Timer = ({
           </Text>
         </View>
       </View>
-      <View className="flex-[0.3] flex-row items-center justify-center p-4">
+      <View className="flex-[0.5] flex-row items-center justify-center p-4">
         {isStarted ? (
           <RoundedButton title="pause" onPress={pauseButtonHandler} />
         ) : (
@@ -58,7 +68,7 @@ export const Timer = ({
         )}
       </View>
       <View className="flex-row">
-        <Timing onChangeTime={setMinutes} minutes={10} />
+        <Timing onChangeTime={setMinutes} minutes={0.1} />
         <Timing onChangeTime={setMinutes} minutes={15} />
         <Timing onChangeTime={setMinutes} minutes={20} />
       </View>

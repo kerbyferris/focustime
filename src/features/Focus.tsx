@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View } from "react-native";
 import { TextInput } from "react-native-paper";
 import { RoundedButton } from "../components/RoundedButton";
 
 TextInput;
 
-const Focus = ({ addSubject }) => {
+const Focus = ({ addSubject }: { addSubject: any }) => {
   const [subject, setSubject] = useState(null);
   return (
-    <View className="flex-1">
+    <View>
       <View className="flex-row justify-center p-6 text-black">
         <TextInput
           className="mr-2 flex-1"
