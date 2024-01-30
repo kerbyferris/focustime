@@ -14,7 +14,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.0",
-    "expo": "~46.0.16",
+    "expo": "~50.0.4",
     "expo-keep-awake": "^11.0.1",
     "expo-status-bar": "~1.4.0",
     "nativewind": "^2.0.11",
